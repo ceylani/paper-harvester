@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-harvester"
+version = "0.1.0b1"
+description = "A layout-aware academic paper harvester and Markdown synthesis compiler."
+readme = "README.md"
+authors = [{ name = "Open Source Contributor" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["academic", "arxiv", "pdf", "markdown", "research", "pymupdf4llm", "cli", "citations"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "pymupdf>=1.23.0",
+    "pymupdf4llm>=0.0.17",
+    "requests>=2.31.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.3.0",
+]
+
+[project.scripts]
+paper-harvester = "paper_harvester.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/ceylani/paper-harvester"
+"Bug Tracker" = "https://github.com/ceylani/paper-harvester/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
